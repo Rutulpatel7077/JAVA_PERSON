@@ -30,13 +30,19 @@ int yearBorn, age;
         setYearBorn();
         setAge();
         testInvalidPerson();
-    }
+    }  // end of constructor 
     
-
+    /*
+         get method for year
+    */
     public int getYearBorn() {
         return yearBorn;
     }
-
+    
+    /*
+      set method for yearBorn    
+    */
+    
     public void setYearBorn() {
         this.yearBorn = birthdate.getYear();
     }
@@ -44,96 +50,152 @@ int yearBorn, age;
     public int getAge() {
         return age;
     }
-
+    /**
+     * these all setter and getter methods for all variable
+     */
     public void setAge() {
         Calendar now = Calendar.getInstance();  
         int year = now.get(Calendar.YEAR);      
         this.age = year - getYearBorn() - 1;
     }
-
+    /**
+     * this is get method for postal code
+     * @return 
+     */
     public String getPostalCode() {
         return postalCode;
     }
-
+    /**
+     * this is set method for postal code
+     * @param postalCode 
+     */
     public void setPostalCode(String postalCode) {
         if (postalCode.length() == 6)
             this.postalCode = postalCode;
         else 
             throw new IllegalArgumentException("the invalid postal code should have thrown an exception");
     }
-
+    /**
+     * this is get method for address
+     * @return 
+     */
     public String getAddress() {
         return address;
     }
-
+    /**
+     * this is set method for address
+     * @param address 
+     */
     public void setAddress(String address) {
         this.address = address;
     }
-
+    /**
+     * this is get method for firstName
+     * @return 
+     */
     public String getFirstName() {
         return firstName;
     }
-
+    /**
+     * this is set method for first name
+     * @param firstName 
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
+    /**
+     * this is get method for lastName
+     * @return 
+     */
     public String getLastName() {
         return lastName;
     }
-
+    /**
+     * this is set method for LastName
+     * @param lastName 
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
+    /**
+     * this is get method for the street Address
+     * @return 
+     */
     public String getStreetAddress() {
         return streetAddress;
     }
-
+    /**
+     * this is set method for the street Address
+     * @param streetAddress 
+     */
     public void setStreetAddress(String streetAddress) {
         this.streetAddress = streetAddress;
     }
-
+    /**
+     * this is get method for the city name
+     * @return 
+     */
     public String getCity() {
         return city;
     }
-
+    /**
+     * this is set method for the city
+     * @param city 
+     */
     public void setCity(String city) {
         this.city = city;
     }
-
+    /**
+     * this is get  method for the province name
+     * @return 
+     */
     public String getProvince() {
         return province;
     }
-
+    /**
+     * this is set method for the province name
+     * @param province 
+     */
     public void setProvince(String province) {
         this.province = province;
     }
-
+    /**
+     * this is get method for the birthdate
+     * @return 
+     */
     public LocalDate getBirthdate() {
         return birthdate;
     }
-
+    /**
+     * this is set method for the BirthDate
+     * @param birthdate 
+     */
     public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
     }    
-    
+    /*
+    this testInvalidPerson method for person  
+    */
     public void testInvalidPerson() {
         if (postalCode.length() == 6)
             this.postalCode = postalCode;
         else 
             throw new IllegalArgumentException("the invalid postal code should have thrown an exception");
     }
-    
+    /*
+     this method change and set the method for address
+    */
     public void changeAddress(String street, String city, String province, String postalCode) {
         setStreetAddress(street);
         setCity(city);
         setProvince(province);
         setPostalCode(postalCode);
     }
-    
+    /*
+       this is get method for the address
+    */
     public String getFullAddress() {
         address = getStreetAddress() + ", " + getCity() + ", " + getProvince() + ", " + getPostalCode();
         return address;
     }
-}
+}  // end of class
