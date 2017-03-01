@@ -14,6 +14,7 @@ import java.util.ArrayList;
  * @author Rutul
  */
 
+
 public class Course {
     private String courseName,description,courseCode,room;
     private  int numberOfStudents,duration;
