@@ -63,14 +63,14 @@ int yearBorn, age;
      * @return 
      */
     public String getPostalCode() {
-        return postalCode;
+        return postalCode.toUpperCase();
     }
     /**
      * this is set method for postal code
      * @param postalCode 
      */
     public void setPostalCode(String postalCode) {
-        if (postalCode.length() == 6)
+        if ((postalCode.length() == 6) && setPostalCodeInvalidPattern(postalCode) )
             this.postalCode = postalCode;
         else 
             throw new IllegalArgumentException("the invalid postal code should have thrown an exception");
@@ -160,17 +160,17 @@ int yearBorn, age;
         this.province = province;
     }
     /**
-     * this is get method for the birthdate
+     * this is get method for the birthday
      * @return 
      */
-    public LocalDate getBirthdate() {
+    public LocalDate getBirthday() {
         return birthdate;
     }
     /**
      * this is set method for the BirthDate
      * @param birthdate 
      */
-    public void setBirthdate(LocalDate birthdate) {
+    public void setBirthday(LocalDate birthdate) {
         this.birthdate = birthdate;
     }    
     /*
@@ -197,5 +197,30 @@ int yearBorn, age;
     public String getFullAddress() {
         address = getStreetAddress() + ", " + getCity() + ", " + getProvince() + ", " + getPostalCode();
         return address;
+    }
+    
+    
+    public String toString()
+    {
+        return firstName+" "+ lastName;
+    }
+    
+    public boolean setPostalCodeInvalidPattern(String postCode) {
+        if ((postCode.length()== 0)
+                || (!Character.isLetter(postCode.charAt(0)))
+                || (!Character.isDigit(postCode.charAt(1)))
+                || (!Character.isLetter(postCode.charAt(2)))
+                || (!Character.isDigit(postCode.charAt(3)))
+                || (!Character.isLetter(postCode.charAt(4))) 
+                || (!Character.isDigit(postCode.charAt(5)))
+            )    {
+            return false;
+            
+        //throw new IllegalArgumentException("");
+        }
+                else
+          {
+             return true;
+          }    
     }
 }  // end of class
