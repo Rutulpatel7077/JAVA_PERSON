@@ -6,6 +6,7 @@
 package assignment1sem2;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.Calendar;
 
 /**
@@ -37,7 +38,7 @@ public class Student extends Person {
    
     public Student(String firstName, String lastName, String streetAddress, String city, String province, String postalCode, LocalDate birthdate, String major, int studentNumber, LocalDate enrollDate) {
         super(firstName, lastName, streetAddress, city, province, postalCode, birthdate);
-        setBirthday(birthdate);
+        this.setBirthday(birthdate);
         reinstateStudent();
         this.studentNumber = studentNumber;
         setYearEnrolled(enrollDate);
@@ -59,7 +60,7 @@ public class Student extends Person {
      * @return 
      */
     public int getYearsAtCollege() {
-        return LocalDate.now().getYear()-getYearEnrolled();
+        return Period.between(enrollDate, LocalDate.now()).getYears();
     }
     
     /**
@@ -79,14 +80,14 @@ public class Student extends Person {
     } 
     
     /**
-     * setBirthday method
+     * setBirthday method`
      * this method will validate and return birth date of student.
      * @param birthdate 
      */
     public void setBirthday(LocalDate birthdate) {
         
         if((LocalDate.now().getYear()-birthdate.getYear()) >= 14 && (LocalDate.now().getYear()-birthdate.getYear() <= 90)) 
-            this.birthdate = birthdate; 
+            super.setBirthday(birthdate);
         else 
             throw new IllegalArgumentException("The student should at least 14");
     }
@@ -125,7 +126,7 @@ public class Student extends Person {
      * @return 
      */
     public String toString() {     
-        return  String.format(firstName+" "+lastName+","+" student number is "+studentNumber);     
+        return  String.format(this.getFirstName()+" "+this.getLastName()+","+" student number is "+studentNumber);     
     }
     
     

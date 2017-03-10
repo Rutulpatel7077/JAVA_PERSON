@@ -14,9 +14,9 @@ import java.util.Calendar;
  * @author Rutul
  */
 public class Person {
-int yearBorn, age;
-    String postalCode, address, firstName, lastName, streetAddress, city, province;
-    LocalDate birthdate;
+   private int yearBorn, age;
+   private String postalCode, address, firstName, lastName, streetAddress, city, province;
+   private LocalDate birthdate;
     
     public Person(String firstName, String lastName, String streetAddress, String city, String province, String postalCode, LocalDate birthdate) {
         this.postalCode = postalCode;
@@ -204,7 +204,11 @@ int yearBorn, age;
     {
         return firstName+" "+ lastName;
     }
-    
+    /**
+     * This method will validate Postal code with each and every character
+     * @param postCode
+     * @return 
+     */
     public boolean setPostalCodeInvalidPattern(String postCode) {
         if ((postCode.length()== 0)
                 || (!Character.isLetter(postCode.charAt(0)))
@@ -216,7 +220,6 @@ int yearBorn, age;
             )    {
             return false;
             
-        //throw new IllegalArgumentException("");
         }
                 else
           {

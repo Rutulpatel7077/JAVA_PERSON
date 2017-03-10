@@ -39,7 +39,7 @@ public class Instructor extends Person {
     public Instructor(String firstName, String lastName, String streetAddress, String city, String province, String postalCode, LocalDate birthdate,int employeeNumber,LocalDate hireDate) {
         super(firstName, lastName, streetAddress, city, province, postalCode, birthdate);
         if(employeeNumber == 0)
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("employee number should not be a zero");
         else
             this.employeeNumber = employeeNumber;
         setHireDate(hireDate);
@@ -161,7 +161,7 @@ public class Instructor extends Person {
     public void setBirthday(LocalDate birthdate) {
         
         if((LocalDate.now().getYear()-birthdate.getYear()) >= 18 && (LocalDate.now().getYear()-birthdate.getYear() <= 100)) 
-            this.birthdate = birthdate; 
+            this.setBirthday(birthdate); 
         else 
             throw new IllegalArgumentException("The Instructor to be too young");
     
