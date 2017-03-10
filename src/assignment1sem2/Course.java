@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class Course {
     
+    
     private String courseName,description,courseCode,room;
     private  int numberOfStudents,duration;
     private LocalTime startTime;

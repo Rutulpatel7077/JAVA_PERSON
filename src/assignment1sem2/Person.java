@@ -18,6 +18,7 @@ public class Person {
    private String postalCode, address, firstName, lastName, streetAddress, city, province;
    private LocalDate birthdate;
     
+   
     public Person(String firstName, String lastName, String streetAddress, String city, String province, String postalCode, LocalDate birthdate) {
         this.postalCode = postalCode;
         this.address = address;

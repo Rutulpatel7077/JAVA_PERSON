@@ -9,6 +9,7 @@ package assignment1sem2;
  *
  * @author Rutul
  */
+
  public class InvalidStudentException extends Exception
 {
     //Parameterless Constructor
